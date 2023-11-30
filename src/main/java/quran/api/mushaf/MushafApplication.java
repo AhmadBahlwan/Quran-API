@@ -9,7 +9,6 @@ import quran.api.mushaf.entity.Surah;
 import quran.api.mushaf.repository.AyahRepository;
 import quran.api.mushaf.repository.SurahRepository;
 
-import javax.annotation.PostConstruct;
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -62,17 +61,17 @@ public class MushafApplication {
 
 
 	}
-	@PostConstruct
-	public void initializeSurahPlaces(){
-		String textInfo = "البقرة-آل عمران-النساء-المائدة-الأنفال-التوبة-النور-الأحزاب-محمد-الفتح-الحجرات-الحديد-المجادلة-الحشر-الممتحنة-الصف-الجمعة-المنافقون-التغابن-الطلاق-التحريم-النصر";
-		String text2Info = "الرعد-الحج-الرحمن-الإنسان-البينة-الزلزلة";
-		List<String> names = Arrays.asList(text2Info.split("-"));
-		surahRepository.findAll().stream().filter(surah->surah.getPlace() == null)
-				.forEach(surah->{
-					surah.setPlace(Surah.Type.MEKKA);
-					surahRepository.save(surah);
-				});
-	}
+//	@PostConstruct
+//	public void initializeSurahPlaces(){
+//		String textInfo = "البقرة-آل عمران-النساء-المائدة-الأنفال-التوبة-النور-الأحزاب-محمد-الفتح-الحجرات-الحديد-المجادلة-الحشر-الممتحنة-الصف-الجمعة-المنافقون-التغابن-الطلاق-التحريم-النصر";
+//		String text2Info = "الرعد-الحج-الرحمن-الإنسان-البينة-الزلزلة";
+//		List<String> names = Arrays.asList(text2Info.split("-"));
+//		surahRepository.findAll().stream().filter(surah->surah.getPlace() == null)
+//				.forEach(surah->{
+//					surah.setPlace(Surah.Type.MEKKA);
+//					surahRepository.save(surah);
+//				});
+//	}
 
 
 	public static String getFileContent(String path) throws IOException {

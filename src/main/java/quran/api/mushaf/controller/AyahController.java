@@ -12,8 +12,8 @@ public class AyahController {
     @Autowired
     AyahRepository ayahRepository;
 
-    @GetMapping("/{name}")
-    public ResponseEntity<?> getAyah(@PathVariable("name") String name, @RequestParam("number") Integer number){
+    @GetMapping("/{surahName}")
+    public ResponseEntity<?> getAyah(@PathVariable("surahName") String name, @RequestParam("number") Integer number){
         return ResponseEntity.ok(ayahRepository.findBySurahAndNumber(name,number));
     }
 }
