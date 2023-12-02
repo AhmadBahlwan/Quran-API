@@ -2,11 +2,11 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      java: corretto17
+      java: corretto11
   build:
     commands:
       - echo Build started on `date`
-      - mvn clean package -DskipTests
+      - mvn clean package -DskipTests -Pprod
   post_build:
     commands:
       - echo Build completed on `date`
