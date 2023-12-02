@@ -14,9 +14,9 @@
 	<packaging>jar</packaging>
 	<name>mushaf</name>
 	<description>API for quran</description>
-<!--	<properties>-->
-<!--		<java.version>1.8</java.version>-->
-<!--	</properties>-->
+	<properties>
+		<java.version>17</java.version>
+	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -45,19 +45,4 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-
-	<profiles>
-		<profile>
-			<id>develop</id>
-			<properties>
-				<java.version>17</java.version>
-			</properties>
-		</profile>
-		<profile>
-			<id>prod</id>
-			<properties>
-				<java.version>1.8</java.version>
-			</properties>
-		</profile>
-	</profiles>
 </project>
