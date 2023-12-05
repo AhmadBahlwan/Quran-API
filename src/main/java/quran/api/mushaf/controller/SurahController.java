@@ -9,16 +9,22 @@ import org.springframework.web.bind.annotation.RestController;
 import quran.api.mushaf.entity.Surah;
 import quran.api.mushaf.repository.AyahRepository;
 import quran.api.mushaf.repository.SurahRepository;
+import quran.api.mushaf.service.SurahService;
 
 @RestController
 @RequestMapping("/surah")
 public class SurahController {
 
     @Autowired
-    SurahRepository surahRepository;
+    SurahService surahService;
+
+    @GetMapping("/all")
+    public ResponseEntity<?> getAllSurah(){
+        return ResponseEntity.ok(surahService.getAll());
+    }
 
     @GetMapping("/{name}")
     public ResponseEntity<?> getSurah(@PathVariable("name") String name){
-        return ResponseEntity.ok(surahRepository.findByName(name));
+        return ResponseEntity.ok(surahService.getByName(name));
     }
 }

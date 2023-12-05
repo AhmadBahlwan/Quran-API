@@ -2,6 +2,7 @@ package quran.api.mushaf.entity;
 
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.Formula;
 
 import java.util.List;
 
@@ -22,6 +23,9 @@ public class Surah {
     @OneToMany(mappedBy = "surah")
     @OrderBy("number ASC")
     List<Ayah> ayahs;
+
+    @Transient
+    private Integer totalAyahs;
 
     public Long getId() {
         return id;
@@ -56,6 +60,13 @@ public class Surah {
         this.ayahs = ayahs;
     }
 
+    public Integer getTotalAyahs() {
+        return ayahs.size();
+    }
+
+    public void setTotalAyahs(Integer totalAyahs) {
+        this.totalAyahs = totalAyahs;
+    }
 
     public enum Type{
         MEKKA("مكية"), MADINA("مدنية");
